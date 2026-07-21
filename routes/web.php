@@ -2,19 +2,39 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Ubah rute /dashboard bawaan menjadi seperti ini:
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (auth()->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+    return view('dashboard'); // Untuk user biasa
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// ==========================================
+// RUTE USER / PELANGGAN (Bawaan Breeze)
+// ==========================================
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+}); // <- Penutup grup rute user
+
+// ==========================================
+// RUTE KHUSUS ADMIN (Fase 2)
+// ==========================================
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    // Jalur Halaman Utama Dashboard Admin
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Jalur Otomatis untuk Semua Fungsi CRUD Produk
+    Route::resource('products', ProductController::class);
+}); // <- Penutup grup rute admin yang benar
 
 require __DIR__.'/auth.php';
