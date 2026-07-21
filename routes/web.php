@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,9 +15,8 @@ Route::get('/dashboard', function () {
     if (auth()->user()->role === 'admin') {
         return redirect()->route('admin.dashboard');
     }
-    return view('dashboard'); // Untuk user biasa
+    return redirect('/'); // User biasa diarahkan ke katalog produk
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 // ==========================================
 // RUTE USER / PELANGGAN (Bawaan Breeze)
 // ==========================================
@@ -35,6 +35,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     
     // Jalur Otomatis untuk Semua Fungsi CRUD Produk
     Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
 }); // <- Penutup grup rute admin yang benar
 
 require __DIR__.'/auth.php';

@@ -9,6 +9,16 @@
 <body class="bg-slate-100 font-sans p-6">
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
         <h1 class="text-xl font-bold text-slate-900 mb-6">Tambah Produk Baru</h1>
+        <!-- Tambahkan blok pesan error ini -->
+@if ($errors->any())
+    <div class="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl mb-5 text-sm">
+        <ul class="list-disc pl-5 space-y-1">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf

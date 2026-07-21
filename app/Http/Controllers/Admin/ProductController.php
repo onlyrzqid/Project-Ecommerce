@@ -63,7 +63,7 @@ class ProductController extends Controller
             'nama'        => 'required|string|max:255',
             'harga'       => 'required|numeric|min:0',
             'stok'        => 'required|integer|min:0',
-            'foto'        => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'foto'        => 'nullable|image|mimes:jpeg,png,jpg,webp,avif|max:2048',
             'deskripsi'   => 'nullable|string',
         ]);
 
