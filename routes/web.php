@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 
 // RUTE KATALOG & DETAIL PRODUK PELANGGAN
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -25,6 +26,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); // <- Penutup grup rute user
+
+// RUTE KERANJANG BELANJA (Hanya User Login)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{product}', [CartController::class, 'store'])->name('cart.add');
+    Route::patch('/cart/update/{cart}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/delete/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
+});
 
 // ==========================================
 // RUTE KHUSUS ADMIN (Fase 2)

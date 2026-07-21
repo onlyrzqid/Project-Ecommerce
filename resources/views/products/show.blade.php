@@ -75,14 +75,17 @@
 
                 <!-- 2. PERBAIKAN TOMBOL TAMBAH KERANJANG (Proporsional & Tegas) -->
                 <div class="flex items-center gap-3 pt-2">
-                    <button type="button" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-2xl text-sm transition shadow-md hover:shadow-lg active:scale-[0.99] flex items-center justify-center gap-2">
-                        <span>🛒</span> + Tambah ke Keranjang
-                    </button>
-                    
-                    <button type="button" class="bg-slate-100 hover:bg-slate-200 text-slate-500 p-4 rounded-2xl transition flex items-center justify-center">
-                        ❤️
-                    </button>
-                </div>
+    <form action="{{ route('cart.add', $product->id) }}" method="POST" class="flex-1">
+        @csrf
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-2xl text-sm transition shadow-md hover:shadow-lg active:scale-[0.99] flex items-center justify-center gap-2">
+            <span>🛒</span> + Tambah ke Keranjang
+        </button>
+    </form>
+    
+    <button type="button" class="bg-slate-100 hover:bg-slate-200 text-slate-500 p-4 rounded-2xl transition flex items-center justify-center">
+        ❤️
+    </button>
+</div>
             </div>
 
         </div>
