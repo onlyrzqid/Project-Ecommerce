@@ -31,6 +31,16 @@
                         <a href="{{ route('admin.dashboard') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition">Panel Admin</a>
                     @else
                         <span class="text-slate-300">Halo, {{ auth()->user()->name }}</span>
+                    
+                    <!-- TOMBOL KERANJANG BELANJA -->
+                    <a href="{{ route('cart.index') }}" class="text-slate-300 hover:text-white transition">
+                    🛒 Keranjang
+                    </a>
+
+                    <!-- TOMBOL PESANAN SAYA (LANGKAH 7) -->
+                    <a href="{{ route('orders.index') }}" class="text-slate-300 hover:text-white transition">
+                    📜 Pesanan Saya
+                    </a>
                     @endif
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf

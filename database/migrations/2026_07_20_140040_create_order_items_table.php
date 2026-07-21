@@ -13,10 +13,10 @@ return new class extends Migration
 {
     Schema::create('order_items', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('order_id')->constrained()->onDelete('cascade');
-        $table->foreignId('product_id')->constrained()->onDelete('cascade');
-        $table->integer('kuantitas'); // Jumlah barang yang dibeli
-        $table->integer('harga_saat_beli'); // Mengunci harga barang saat dibeli agar aman jika nanti harga katalog berubah
+        $table->foreignId('order_id')->constrained()->onDelete('cascade'); // Terhubung ke tabel orders
+        $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Produk yang dibeli
+        $table->integer('qty'); // Jumlah dibeli
+        $table->bigInteger('harga'); // Harga produk saat transaksi
         $table->timestamps();
     });
 }

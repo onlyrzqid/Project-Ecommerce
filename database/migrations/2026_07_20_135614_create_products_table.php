@@ -16,7 +16,7 @@ return new class extends Migration
         // Menghubungkan produk ke kategori. Jika kategori dihapus, produk di dalamnya otomatis ikut terhapus
         $table->foreignId('category_id')->constrained()->onDelete('cascade'); 
         $table->string('nama'); // Nama Laptop/Aksesoris
-        $table->integer('harga');
+        $table->bigInteger('harga');
         $table->integer('stok');
         $table->string('foto')->nullable(); // Tempat menyimpan path file foto produk
         $table->text('deskripsi')->nullable();

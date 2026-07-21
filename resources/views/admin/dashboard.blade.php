@@ -30,12 +30,18 @@
             
             <!-- METRIC CARDS -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-                <!-- Total Penjualan -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Penjualan</p>
-                    <p class="text-2xl font-extrabold text-slate-900 mt-2">Rp {{ number_format($totalPenjualan, 0, ',', '.') }}</p>
-                    <div class="absolute right-4 bottom-4 bg-blue-50 text-blue-600 p-2 rounded-xl text-xl font-bold">💰</div>
-                </div>
+                <!-- KARTU TOTAL PENJUALAN -->
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between">
+    <div>
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total Penjualan</p>
+        <h3 class="text-2xl font-extrabold text-slate-900">
+            Rp {{ number_format($totalPenjualan ?? 0, 0, ',', '.') }}
+        </h3>
+    </div>
+    <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-between justify-center text-xl">
+        💰
+    </div>
+</div>
 
                 <!-- Jumlah Order -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">

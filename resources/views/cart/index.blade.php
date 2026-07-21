@@ -81,9 +81,9 @@
                         <span class="font-bold text-slate-900">Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
                     </div>
                     <hr class="my-4 border-slate-100">
-                    <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition shadow-md">
-                        Lanjut ke Checkout
-                    </button>
+                    <a href="{{ route('checkout.index') }}" class="block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition shadow-md">
+                     Lanjut ke Checkout
+                    </a>
                 </div>
 
             </div>
