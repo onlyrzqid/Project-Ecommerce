@@ -46,7 +46,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        // Mengarahkan pembeli yang baru mendaftar langsung ke Katalog / Beranda Utama
-        return redirect('/');
+        return redirect(route('dashboard', absolute: false));
     }
 }

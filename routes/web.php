@@ -4,18 +4,18 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// RUTE KATALOG & DETAIL PRODUK PELANGGAN
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/product/{product}', [HomeController::class, 'show'])->name('products.show');
 
 // Ubah rute /dashboard bawaan menjadi seperti ini:
 Route::get('/dashboard', function () {
     if (auth()->user()->role === 'admin') {
         return redirect()->route('admin.dashboard');
     }
-    return redirect('/'); // User biasa diarahkan ke katalog produk
+   return view('dashboard'); // Untuk user biasa
 })->middleware(['auth', 'verified'])->name('dashboard');
 // ==========================================
 // RUTE USER / PELANGGAN (Bawaan Breeze)
