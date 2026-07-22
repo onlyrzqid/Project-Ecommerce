@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $product->nama }} - CompStore</title>
+    <title>{{ $product->nama }} - RazaqComputer</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 flex flex-col min-h-screen">
@@ -12,7 +12,7 @@
     <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
             <a href="{{ route('home') }}" class="font-bold text-xl tracking-wider text-blue-400 flex items-center gap-2">
-                <span>💻</span> CompStore
+                <span>💻</span> RazaqComputer
             </a>
             
             <a href="{{ route('home') }}" class="text-xs text-slate-300 hover:text-white transition flex items-center gap-1">
@@ -93,7 +93,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-xs text-center py-6 border-t border-slate-800">
-        <p>&copy; {{ date('Y') }} CompStore E-Commerce. All rights reserved.</p>
+        <p>&copy; {{ date('Y') }} RazaqComputer E-Commerce. All rights reserved.</p>
     </footer>
 
 </body>

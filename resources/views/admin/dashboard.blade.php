@@ -3,23 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - CompStore</title>
+    <title>Dashboard Admin - RazaqComputer</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-100 font-sans text-slate-800">
     <div class="flex min-h-screen">
-        <!-- SIDEBAR -->
-        <aside class="w-64 bg-slate-900 text-slate-300 p-5 hidden md:block flex-shrink-0">
-            <div class="font-bold text-white text-xl mb-8 tracking-wider">💻 CompStore</div>
-            <nav class="space-y-2">
-                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2.5 rounded-xl bg-blue-600 text-white font-medium shadow-md shadow-blue-900/30">📊 Dashboard</a>
-                <a href="{{ route('admin.products.index') }}" class="block px-4 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">📦 CRUD Produk</a>
-                <form method="POST" action="{{ route('logout') }}" class="pt-4">
-                    @csrf
-                    <button type="submit" class="w-full text-left px-4 py-2.5 rounded-xl text-red-400 hover:bg-red-500/10 transition font-medium">🚪 Keluar</button>
-                </form>
-            </nav>
-        </aside>
+
+        <!-- SIDEBAR ADMIN UNIFORM -->
+<aside class="w-64 bg-slate-900 text-slate-300 p-5 block flex-shrink-0 min-h-screen">
+    <!-- Logo / Brand Header -->
+    <div class="flex items-center space-x-3 mb-8 px-2">
+        <span class="text-2xl">💻</span>
+        <h1 class="text-xl font-bold text-white tracking-wide">RazaqComputer</h1>
+    </div>
+
+    <!-- Navigasi Menu -->
+    <nav class="space-y-2">
+        <!-- 1. Dashboard -->
+        <a href="{{ route('admin.dashboard') }}" 
+           class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition {{ request()->routeIs('admin.dashboard') ? 'bg-blue-600 text-white font-semibold' : 'text-slate-300 hover:bg-slate-800' }}">
+            <span>📊</span>
+            <span>Dashboard</span>
+        </a>
+
+        <!-- 2. CRUD Produk -->
+        <a href="{{ route('admin.products.index') }}" 
+           class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition {{ request()->routeIs('admin.products.*') ? 'bg-blue-600 text-white font-semibold' : 'text-slate-300 hover:bg-slate-800' }}">
+            <span>📦</span>
+            <span>CRUD Produk</span>
+        </a>
+
+        <!-- 3. Pesanan Masuk -->
+        <a href="{{ route('admin.orders.index') }}" 
+           class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition {{ request()->routeIs('admin.orders.*') ? 'bg-blue-600 text-white font-semibold' : 'text-slate-300 hover:bg-slate-800' }}">
+            <span>🛒</span>
+            <span>Pesanan Masuk</span>
+        </a>
+
+        <!-- 4. Tombol Keluar -->
+        <div class="pt-6 mt-6 border-t border-slate-800">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium text-rose-400 hover:bg-rose-500/10 transition">
+                    <span>🚪</span>
+                    <span>Keluar</span>
+                </button>
+            </form>
+        </div>
+    </nav>
+</aside>
 
         <!-- CONTENT AREA -->
         <main class="flex-1 p-8">

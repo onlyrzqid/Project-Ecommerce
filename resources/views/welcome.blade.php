@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompStore - Toko Komputer & Laptop Terpercaya</title>
+    <title>RazaqComputer - Toko Laptop & Aksesoris Terpercaya</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 flex flex-col min-h-screen">
@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
             <!-- LOGO -->
             <a href="{{ route('home') }}" class="font-bold text-xl tracking-wider text-blue-400 flex items-center gap-2">
-                <span>💻</span> CompStore
+                <span>💻</span> RazaqComputer
             </a>
 
             <!-- SEARCH BAR -->
@@ -57,8 +57,8 @@
     <!-- HERO BANNER -->
     <section class="bg-slate-900 text-white py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">Temukan Hardware & Laptop Impianmu</h1>
-            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">Pusat belanja peralatan komputer, laptop gaming, dan aksesoris terlengkap dengan harga bersaing dan garansi resmi.</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">Temukan Laptop & Akesosris Impianmu</h1>
+            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">Pusat belanja laptop, dan aksesoris terlengkap dengan harga bersaing dan garansi resmi.</p>
         </div>
     </section>
 
@@ -125,7 +125,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-xs text-center py-6 border-t border-slate-800">
-        <p>&copy; {{ date('Y') }} CompStore E-Commerce. All rights reserved.</p>
+        <p>&copy; {{ date('Y') }} RazaqComputer E-Commerce. All rights reserved.</p>
     </footer>
 
 </body>

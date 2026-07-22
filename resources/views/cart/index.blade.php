@@ -101,7 +101,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-xs text-center py-6 border-t border-slate-800">
-        <p>&copy; {{ date('Y') }} CompStore E-Commerce. All rights reserved.</p>
+        <p>&copy; {{ date('Y') }} RazaqComputer E-Commerce. All rights reserved.</p>
     </footer>
 
 </body>

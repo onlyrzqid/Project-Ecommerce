@@ -13,16 +13,16 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Membuat Akun Admin
         User::create([
-            'name' => 'Admin Utama',
-            'email' => 'admin@compstore.com',
+            'name' => 'Admin',
+            'email' => 'adminproject@gmail.com',
             'password' => bcrypt('password123'),
             'role' => 'admin',
         ]);
 
         // 2. Membuat Akun Pelanggan
         User::create([
-            'name' => 'Budi User',
-            'email' => 'budi@gmail.com',
+            'name' => 'User',
+            'email' => 'user@gmail.com',
             'password' => bcrypt('password123'),
             'role' => 'pelanggan',
         ]);

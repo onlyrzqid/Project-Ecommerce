@@ -12,20 +12,21 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // 1. Menghitung total penjualan dari seluruh pesanan yang masuk (kecuali yang dibatalkan)
-    $totalPenjualan = Order::where('status', '!=', 'dibatalkan')->sum('total_harga');
-    
-        // 2. Menghitung total seluruh pesanan yang masuk
-        $jumlahOrder = Order::count();
+        // 1. Total Penjualan (HANYA menghitung transaksi yang berstatus 'Selesai')
+        $totalPenjualan = Order::where('status', 'Selesai')->sum('total_harga');
 
-        // 3. Mencari produk terlaris berdasarkan kuantitas terbanyak di tabel pivot order_items
+        // 2. Jumlah Order (Menghitung semua transaksi aktif)
+        $jumlahOrder = Order::where('status', '!=', 'dibatalkan')->count();
+
+        // 3. Produk Terlaris (HANYA menghitung dari transaksi yang 'Selesai')
         $produkTerlaris = Product::select('products.nama', DB::raw('SUM(order_items.qty) as total_terjual'))
             ->join('order_items', 'products.id', '=', 'order_items.product_id')
+            ->join('orders', 'order_items.order_id', '=', 'orders.id')
+            ->where('orders.status', '=', 'Selesai') // <-- Ubah bagian ini ke 'Selesai'
             ->groupBy('products.id', 'products.nama')
             ->orderBy('total_terjual', 'DESC')
             ->first();
 
-        // Mengirimkan data metrik ke halaman view dashboard admin
         return view('admin.dashboard', compact('totalPenjualan', 'jumlahOrder', 'produkTerlaris'));
     }
 }

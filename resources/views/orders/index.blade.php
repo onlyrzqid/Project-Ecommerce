@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Pesanan Saya - CompStore</title>
+    <title>Riwayat Pesanan Saya - RazaqComputer</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 flex flex-col min-h-screen">
 
     <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="font-bold text-xl text-blue-400">💻 CompStore</a>
+            <a href="{{ route('home') }}" class="font-bold text-xl text-blue-400">💻 RazaqComputer</a>
             <a href="{{ route('home') }}" class="text-xs text-slate-300 hover:text-white">← Kembali ke Katalog</a>
         </div>
     </header>
